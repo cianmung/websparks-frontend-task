@@ -1,14 +1,18 @@
-(function() {
-  // everything on document ready
-  $.ajax({
-    type: 'GET',
-    url: fileLocation,
-    dataType: 'xml', // or json
-    success: function(data) {
-      // upon a successful call, what to do with the data retrieved
-    },
-    error: function(error, text, thrown) {
-      // console log the error to help you
-    }
-  })
+$(document).ready(function () {
+  $(".carousel-slider").slick({
+    infinite: true,
+    speed: 300,
+    slidesToShow: 1,
+    adaptiveHeight: true,
+  });
+
+  // $(window).on("resize", function () {
+  //   if ($(window).width() < 1000) {
+  //     let scrollY = $(window).scrollTop();
+  //     $(".home-page-banner-image-container").css(
+  //       "background-position",
+  //       "left " + scrollY + "px"
+  //     );
+  //   }
+  // });
 });
