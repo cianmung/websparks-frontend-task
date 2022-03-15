@@ -6,13 +6,23 @@ $(document).ready(function () {
     adaptiveHeight: true,
   });
 
-  // $(window).on("resize", function () {
-  //   if ($(window).width() < 1000) {
-  //     let scrollY = $(window).scrollTop();
-  //     $(".home-page-banner-image-container").css(
-  //       "background-position",
-  //       "left " + scrollY + "px"
-  //     );
-  //   }
-  // });
+  $.ajax({
+    type: "GET",
+    url: "./data/news.json",
+    dataType: "json",
+    success: function (data) {
+      data.forEach((news) => {
+        $(".each-news-today").append(
+          '<p class="news-date">' + news.date + "</p>"
+        );
+        $(".each-news-today").append(
+          '<p class="news-headline">' + news.headline + "</p>"
+        );
+        $(".each-news-today").append('<hr class="solid-divider">');
+      });
+    },
+    error: function (error, text, thrown) {
+      console.error(error);
+    },
+  });
 });
