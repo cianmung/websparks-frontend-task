@@ -26,3 +26,17 @@ $(document).ready(function () {
     },
   });
 });
+
+$(window).scroll(function () {
+  var scrolledY = $(window).scrollTop();
+  $(".mobile-background-image-container").css(
+    "background-position",
+    "center " + scrolledY + "px"
+  );
+  if (scrolledY < 66) {
+    $(".home-page-banner-image-container").css(
+      "marginTop",
+      "-" + scrolledY + "px"
+    );
+  }
+});
